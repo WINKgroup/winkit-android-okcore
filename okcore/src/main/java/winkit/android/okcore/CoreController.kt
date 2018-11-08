@@ -34,8 +34,16 @@ open class CoreController <T: CoreRest> {
 
     }
 
-    protected fun execute (request: CoreRest.CoreRequest): String? {
+    protected fun executeString (request: CoreRest.CoreRequest): String? {
         val response = view.getCoreClient().execute(request)
         return StringCallback.parseSync(response)
+    }
+
+    protected fun <T> mapJsonArray (jsonArray: JSONArray, callback: (json: JSONObject) -> T): List<T> {
+        val result = ArrayList<T>()
+        for (i in 0..(jsonArray.length() - 1)) {
+            result.add(callback(jsonArray.getJSONObject(i)))
+        }
+        return result
     }
 }

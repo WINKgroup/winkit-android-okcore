@@ -2,9 +2,8 @@ package winkit.android.okcore.example
 
 import org.json.JSONObject
 
-class Developer {
+class Developer(json: JSONObject) {
 
-    constructor(json: JSONObject) {
+    val name = json.getString("name")?: ""
 
-    }
 }
