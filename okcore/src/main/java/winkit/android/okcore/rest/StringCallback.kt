@@ -27,7 +27,15 @@ abstract class StringCallback: Callback {
 
     abstract fun onFailure(e: Exception?)
 
-    abstract class DefaultFailure(private val callback: ParsedCallback<*>) : StringCallback () {
+    abstract class Secure<T> (private val callback: ParsedCallback<T>): StringCallback () {
+
+        override fun onResponse(response: String?) {
+            if(response == null) callback.response(null)
+            else callback.response(onSecureResponse(response))
+        }
+
+        abstract fun onSecureResponse(response: String): T?
+
         override fun onFailure(e: Exception?) {
             callback.failure(e)
         }

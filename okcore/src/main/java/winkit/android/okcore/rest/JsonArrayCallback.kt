@@ -34,7 +34,15 @@ abstract class JsonArrayCallback: Callback {
 
     abstract fun onFailure(e: Exception?)
 
-    abstract class DefaultFailure(private val callback: ParsedCallback<*>) : JsonArrayCallback () {
+    abstract class Secure<T> (private val callback: ParsedCallback<T>) : JsonArrayCallback () {
+
+        final override fun onResponse(json: JSONArray?) {
+            if(json == null) callback.response(null)
+            else callback.response(onSecureResponse(json))
+        }
+
+        abstract fun onSecureResponse(json: JSONArray): T?
+
         override fun onFailure(e: Exception?) {
             callback.failure(e)
         }

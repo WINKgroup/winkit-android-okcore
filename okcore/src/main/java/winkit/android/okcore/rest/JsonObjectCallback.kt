@@ -33,7 +33,15 @@ abstract class JsonObjectCallback: Callback {
 
     abstract fun onFailure(e: Exception?)
 
-    abstract class DefaultFailure(private val callback: ParsedCallback<*>) : JsonObjectCallback () {
+    abstract class Secure<T> (private val callback: ParsedCallback<T>) : JsonObjectCallback () {
+
+        final override fun onResponse(json: JSONObject?) {
+            if(json == null) callback.response(null)
+            else callback.response(onSecureResponse(json))
+        }
+
+        abstract fun onSecureResponse(json: JSONObject): T?
+
         override fun onFailure(e: Exception?) {
             callback.failure(e)
         }
