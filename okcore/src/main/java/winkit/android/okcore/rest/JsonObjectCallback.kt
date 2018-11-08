@@ -10,11 +10,16 @@ import java.io.IOException
 
 abstract class JsonObjectCallback: Callback {
 
+    companion object {
+        fun parseSync (response: Response?): JSONObject? {
+            val jsonString = response?.body()?.string()
+            return if(jsonString != null) JSONObject(jsonString) else null
+        }
+    }
+
     final override fun onResponse(call: Call?, response: Response?) {
         try {
-            val jsonString = response?.body()?.string()
-            if (jsonString != null) onResponse(JSONObject(jsonString))
-            else onResponse(null)
+            onResponse(parseSync(response))
         } catch (ex: JSONException) {
             onFailure(ex)
         }

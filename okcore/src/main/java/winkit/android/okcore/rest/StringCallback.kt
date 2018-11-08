@@ -9,8 +9,14 @@ import java.io.IOException
 
 abstract class StringCallback: Callback {
 
+    companion object {
+        fun parseSync (response: Response?): String? {
+            return response?.body()?.string()
+        }
+    }
+
     final override fun onResponse(call: Call?, response: Response?) {
-        onResponse(response?.body()?.string())
+        onResponse(StringCallback.parseSync(response))
     }
 
     final override fun onFailure(call: Call?, e: IOException?) {

@@ -3,6 +3,7 @@ package winkit.android.okcore.rest
 import okhttp3.Callback
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.Response
 
 class CoreClient : OkHttpClient() {
 
@@ -14,6 +15,8 @@ class CoreClient : OkHttpClient() {
         }
         this.newCall(request.build()).enqueue(callback)
     }
+
+    fun execute (request: Request.Builder): Response = newCall(request.build()).execute()
 
     fun onViewDestroy () {
         dispatcher().queuedCalls().forEach {

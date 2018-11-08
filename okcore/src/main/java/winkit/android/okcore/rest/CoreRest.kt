@@ -15,6 +15,16 @@ abstract class CoreRest (private val baseUrl: String) {
         return builder
     }
 
+    protected fun request (url: String) : Request.Builder {
+        val defaultHeaders = getDefaultHeaders()
+        val builder = Request.Builder()
+        builder.url(baseUrl + url)
+        defaultHeaders?.keys?.forEach {
+            builder.addHeader(it, defaultHeaders.getValue(it))
+        }
+        return builder
+    }
+
     class CoreRequest (val callback: Callback): Request.Builder()
 
     protected abstract fun getDefaultHeaders () : HashMap<String, String>?

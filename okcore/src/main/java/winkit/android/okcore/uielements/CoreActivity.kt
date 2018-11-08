@@ -5,7 +5,7 @@ import winkit.android.okcore.rest.CoreClient
 
 open class CoreActivity: AppCompatActivity(), CoreUi {
 
-    var client: CoreClient = CoreClient()
+    private var client: CoreClient = CoreClient()
 
     override fun getCoreClient(): CoreClient = client
 

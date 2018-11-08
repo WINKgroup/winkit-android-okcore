@@ -5,16 +5,22 @@ import okhttp3.Callback
 import okhttp3.Response
 import org.json.JSONArray
 import org.json.JSONException
+import org.json.JSONObject
 import winkit.android.okcore.ParsedCallback
 import java.io.IOException
 
 abstract class JsonArrayCallback: Callback {
 
+    companion object {
+        fun parseSync (response: Response?): JSONArray? {
+            val jsonString = response?.body()?.string()
+            return if(jsonString != null) JSONArray(jsonString) else null
+        }
+    }
+
     final override fun onResponse(call: Call?, response: Response?) {
         try {
-            val jsonString = response?.body()?.string()
-            if (jsonString != null) onResponse(JSONArray(jsonString))
-            else onResponse(null)
+            onResponse(parseSync(response))
         } catch (ex: JSONException) {
             onFailure(ex)
         }
