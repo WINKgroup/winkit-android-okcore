@@ -23,7 +23,7 @@ allprojects {
 
 ```groovy
 dependencies {
-	implementation 'com.github.WINKgroup:winkit-android-okcore:Tag'
+	implementation 'com.github.WINKgroup:winkit-android-okcore:0.0.1'
 }
 ```
 
