@@ -47,7 +47,7 @@ class MockyRest: CoreRest("http://www.mocky.io/v2/") {
     override fun getDefaultHeaders(): HashMap<String, String>? = null
     
     /*
-        Define an api that (in this case) call the "get all devs" and return an a json array.
+        Define an api that call the "get all devs" and return a json array.
     */
     fun getAllDevs (callback: JsonArrayCallback): CoreRequest = request("592572c21200005100686f0b", callback)
 }
