@@ -1,4 +1,4 @@
-<div style="text-align:center"><img style="height:256px; width:256px" src ="logo.png"/></div>
+<p align="center"><img width="40%" src="logo.png"/></p>
 
 # Winkit OkCore
 
