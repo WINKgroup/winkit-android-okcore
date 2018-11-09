@@ -2,8 +2,7 @@
 
 # Winkit OkCore
 
-<img src="https://img.shields.io/badge/winkit-okcore-green.svg?logo=android&longCache=true&style=popout">
-<img src="https://img.shields.io/badge/kotlin-1.2.71-blue.svg?logo=kotlin&longCache=true&style=popout">
+<img src="https://img.shields.io/badge/winkit-okcore-green.svg?logo=android&longCache=true&style=popout"> <img src="https://img.shields.io/badge/kotlin-1.2.71-blue.svg?logo=kotlin&longCache=true&style=popout">
 
 An android core library to improve the connection between Views, Controllers and RestApi.
 
@@ -26,7 +25,7 @@ allprojects {
 
 ```groovy
 dependencies {
-	implementation 'com.github.User:Repo:Tag'
+	implementation 'com.github.WINKgroup:winkit-android-okcore:0.0.1'
 }
 ```
 
@@ -50,7 +49,7 @@ class MockyRest: CoreRest("http://www.mocky.io/v2/") {
     override fun getDefaultHeaders(): HashMap<String, String>? = null
     
     /*
-        Define an api that (in this case) call the "get all devs" and return an a json array.
+        Define an api that call the "get all devs" and return a json array.
     */
     fun getAllDevs (callback: JsonArrayCallback): CoreRequest = request("592572c21200005100686f0b", callback)
 }
