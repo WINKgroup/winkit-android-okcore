@@ -1,4 +1,6 @@
-# Winkit  
+<div style="text-align:center"><img style="height:256px; width:256px" src ="logo.png"/></div>
+
+# Winkit OkCore
 
 <img src="https://img.shields.io/badge/winkit-okcore-green.svg?logo=android&longCache=true&style=popout">
 <img src="https://img.shields.io/badge/kotlin-1.2.71-blue.svg?logo=kotlin&longCache=true&style=popout">
