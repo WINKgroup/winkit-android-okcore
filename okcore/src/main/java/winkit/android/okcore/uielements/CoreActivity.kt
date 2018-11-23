@@ -9,8 +9,8 @@ open class CoreActivity: AppCompatActivity(), CoreUi {
 
     override fun getCoreClient(): CoreClient = client
 
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
+    override fun onDestroy() {
+        super.onDestroy()
         client.onViewDestroy()
     }
 

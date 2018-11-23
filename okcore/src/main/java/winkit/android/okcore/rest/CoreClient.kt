@@ -7,16 +7,16 @@ import okhttp3.Response
 
 class CoreClient : OkHttpClient() {
 
-    private val VIEW_LIFE = "VIEWLIFE"
+    private val VIEW_LIFE = "VIEW_LIFE"
 
-    fun enqueue (request: Request.Builder, callback: Callback, viewLife: Boolean) {
+    fun enqueue (request: CoreRest.CoreRequest, callback: Callback, viewLife: Boolean) {
         if (viewLife) {
             request.tag(VIEW_LIFE)
         }
         this.newCall(request.build()).enqueue(callback)
     }
 
-    fun execute (request: Request.Builder): Response = newCall(request.build()).execute()
+    fun execute (request: CoreRest.CoreRequest): Response = newCall(request.build()).execute()
 
     fun onViewDestroy () {
         dispatcher().queuedCalls().forEach {

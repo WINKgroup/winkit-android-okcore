@@ -1,9 +1,9 @@
 package winkit.android.okcore.uielements
 
-import android.support.v4.app.Fragment
+import android.app.IntentService
 import winkit.android.okcore.rest.CoreClient
 
-class CoreFragment: Fragment(), CoreUi {
+abstract class CoreIntentService(name: String): IntentService(name), CoreUi {
 
     private var client: CoreClient = CoreClient()
 
@@ -15,7 +15,6 @@ class CoreFragment: Fragment(), CoreUi {
     }
 
     override fun runOnUi (runnable: Runnable) {
-        activity?.runOnUiThread(runnable)
+        runnable.run()
     }
-
 }

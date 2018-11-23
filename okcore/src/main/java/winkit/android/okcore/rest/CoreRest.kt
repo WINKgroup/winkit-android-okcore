@@ -1,7 +1,9 @@
 package winkit.android.okcore.rest
 
 import okhttp3.Callback
+import okhttp3.Headers
 import okhttp3.Request
+import okhttp3.RequestBody
 
 abstract class CoreRest (private val baseUrl: String) {
 
@@ -25,7 +27,30 @@ abstract class CoreRest (private val baseUrl: String) {
         return builder
     }
 
-    class CoreRequest (val callback: Callback): Request.Builder()
+    class CoreRequest (val callback: Callback): Request.Builder() {
+
+        override fun post(body: RequestBody): CoreRequest { super.post(body); return this }
+
+        override fun get(): Request.Builder { super.get(); return this }
+
+        override fun delete(): Request.Builder { super.delete(); return this }
+
+        override fun delete(body: RequestBody?): Request.Builder { super.delete(body); return this }
+
+        override fun patch(body: RequestBody): Request.Builder { super.patch(body); return this }
+
+        override fun put(body: RequestBody): Request.Builder { super.put(body); return this }
+
+        override fun head(): Request.Buil   der { super.head(); return this }
+
+        override fun addHeader(name: String, value: String): CoreRequest { super.addHeader(name, value); return this}
+
+        override fun header(name: String, value: String): CoreRequest { super.header(name, value); return this }
+
+        override fun headers(headers: Headers): CoreRequest { super.headers(headers); return this }
+
+        override fun removeHeader(name: String): CoreRequest { super.removeHeader(name); return this }
+    }
 
     protected abstract fun getDefaultHeaders () : HashMap<String, String>?
 

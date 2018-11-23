@@ -19,9 +19,8 @@ open class CoreController <T: CoreRest> {
         this.rest = rest
     }
 
-    protected fun enqueue (viewLife: Boolean, request: CoreRest.CoreRequest) {
+    protected fun enqueue (viewLife: Boolean, request: CoreRest.CoreRequest) =
         view.getCoreClient().enqueue(request, request.callback, viewLife)
-    }
 
     protected fun executeJsonObject (request: CoreRest.CoreRequest): JSONObject? {
         val response = view.getCoreClient().execute(request)
