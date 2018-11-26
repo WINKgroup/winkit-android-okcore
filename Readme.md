@@ -8,6 +8,9 @@ An android core library to improve the connection between Views, Controllers and
 
 This project is a WIP evolution from [Wink Android Core](https://github.com/WINKgroup/android-core).
 
+Complete documentation [Here](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/).
+
+
 ### Install
 
 **1** Add the JitPack repository to your root build.gradle at the end of repositories

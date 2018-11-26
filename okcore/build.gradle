@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka-android'
 
 android {
     compileSdkVersion 28
@@ -38,4 +39,14 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+dokka {
+    outputFormat = 'gfm'
+    outputDirectory = "./docs"
+    linkMapping {
+        dir = "src/main/java"
+        url = "https://github.com/WINKgroup/winkit-android-okcore/tree/master/okcore/src/main/java"
+        suffix = "#L"
+    }
 }

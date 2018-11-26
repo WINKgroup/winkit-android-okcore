@@ -1,0 +1,6 @@
+$dokka.format:gfm
+$dokka.linkExtension:md
+
+winkit.android.okcore
+winkit.android.okcore.rest
+winkit.android.okcore.uielements
