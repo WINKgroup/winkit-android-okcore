@@ -7,6 +7,29 @@ import okio.BufferedSink
 import org.json.JSONArray
 import org.json.JSONObject
 
+/**
+ * Class to improve the jsonBody code as a request param.
+ *
+ * example without [JsonRequestBody]
+ * ```
+ *  val JSON = MediaType.parse("application/json; charset=utf-8")
+ *  val json = JSONObject()
+ *  try {
+ *      json.put("name", name)
+ *      json.put("surname", surname)
+ *  } catch (e) { ... }
+ *  val body = RequestBody.create(JSON, json.toString());
+ *  request.post(body)
+ * ```
+ *
+ * example with [JsonRequestBody]
+ * ```
+ *  val body = JsonRequestBody
+ *      .put("name", name)
+ *      .put("surname", surname)
+ *  request.post(body)
+ * ```
+ */
 abstract class JsonRequestBody: RequestBody() {
 
     protected abstract fun body (): String

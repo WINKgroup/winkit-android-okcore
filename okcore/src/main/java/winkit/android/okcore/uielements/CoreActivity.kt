@@ -3,6 +3,10 @@ package winkit.android.okcore.uielements
 import android.support.v7.app.AppCompatActivity
 import winkit.android.okcore.rest.CoreClient
 
+/**
+ * The [AppCompatActivity] that implements [CoreUi] interface.
+ * Cancel all ui requests on [onDestroy] event
+ */
 open class CoreActivity: AppCompatActivity(), CoreUi {
 
     private var client: CoreClient = CoreClient()

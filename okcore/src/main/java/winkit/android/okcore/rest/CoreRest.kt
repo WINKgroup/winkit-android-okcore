@@ -5,8 +5,19 @@ import okhttp3.Headers
 import okhttp3.Request
 import okhttp3.RequestBody
 
+/**
+ * Class to extends to create an API class mapping for a baseUrl
+ *
+ * @param baseUrl The server base address
+ */
 abstract class CoreRest (private val baseUrl: String) {
 
+    /**
+     * Create a [CoreRequest] instance
+     *
+     * @param url api (will be concatenate to [baseUrl])
+     * @param callback request (one of [JsonObjectCallback], [JsonArrayCallback], [StringCallback])
+     */
     protected fun request (url: String, callback: Callback) : CoreRequest {
         val defaultHeaders = getDefaultHeaders()
         val builder = CoreRequest(callback)
@@ -17,6 +28,11 @@ abstract class CoreRest (private val baseUrl: String) {
         return builder
     }
 
+    /**
+     * Create a [Request.Builder] instance, use this method for synchronous calls
+     *
+     * @param url api (will be concatenate to [baseUrl])
+     */
     protected fun request (url: String) : Request.Builder {
         val defaultHeaders = getDefaultHeaders()
         val builder = Request.Builder()
@@ -27,6 +43,11 @@ abstract class CoreRest (private val baseUrl: String) {
         return builder
     }
 
+    /**
+     * Okhttp [Request.Builder] wrapper
+     *
+     * @param callback The request callback (one of [JsonObjectCallback], [JsonArrayCallback], [StringCallback])
+     */
     class CoreRequest (val callback: Callback): Request.Builder() {
 
         override fun post(body: RequestBody): CoreRequest { super.post(body); return this }
@@ -52,6 +73,11 @@ abstract class CoreRest (private val baseUrl: String) {
         override fun removeHeader(name: String): CoreRequest { super.removeHeader(name); return this }
     }
 
+    /**
+     * To define the defaults call's headers to the current hostname
+     *
+     * @return the endpoint default headers
+     */
     protected abstract fun getDefaultHeaders () : HashMap<String, String>?
 
 }

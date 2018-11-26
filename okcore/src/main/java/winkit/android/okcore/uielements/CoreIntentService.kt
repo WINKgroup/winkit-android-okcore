@@ -1,8 +1,13 @@
 package winkit.android.okcore.uielements
 
 import android.app.IntentService
+import android.support.v4.app.Fragment
 import winkit.android.okcore.rest.CoreClient
 
+/**
+ * The [CoreIntentService] that implements [CoreUi] interface.
+ * Cancel all ui requests on [onDestroy] event
+ */
 abstract class CoreIntentService(name: String): IntentService(name), CoreUi {
 
     private var client: CoreClient = CoreClient()
