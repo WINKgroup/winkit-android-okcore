@@ -41,7 +41,7 @@ abstract class CoreRest (private val baseUrl: String) {
 
         override fun put(body: RequestBody): Request.Builder { super.put(body); return this }
 
-        override fun head(): Request.Buil   der { super.head(); return this }
+        override fun head(): Request.Builder { super.head(); return this }
 
         override fun addHeader(name: String, value: String): CoreRequest { super.addHeader(name, value); return this}
 

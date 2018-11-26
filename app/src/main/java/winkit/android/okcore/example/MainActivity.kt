@@ -2,6 +2,7 @@ package winkit.android.okcore.example
 
 import android.os.Bundle
 import android.util.Log
+import winkit.android.okcore.MultipleCoreRequests
 import winkit.android.okcore.ParsedCallback
 import winkit.android.okcore.uielements.CoreActivity
 
@@ -22,5 +23,12 @@ class MainActivity : CoreActivity() {
                 Log.d("Failure", s)
             }
         })
+
+        val getAll = MultipleCoreRequests.CoreControllerRequest<List<Developer>>(devController::getAll)
+        val create = MultipleCoreRequests.CoreControllerRequest<Developer>(devController::create, "Luigi", "Vitelli")
+
+        MultipleCoreRequests(getAll, create).start { allSuccess ->
+            Log.d("MultipleCoreRequests", "result $allSuccess")
+        }
     }
 }
