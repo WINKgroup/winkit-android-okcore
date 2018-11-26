@@ -8,7 +8,7 @@ An android core library to improve the connection between Views, Controllers and
 
 This project is a WIP evolution from [Wink Android Core](https://github.com/WINKgroup/android-core).
 
-Complete documentation [Here](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/).
+Complete documentation [Here](https://winkgroup.github.io/winkit-android-okcore/okcore).
 
 
 ### Install
