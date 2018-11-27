@@ -36,9 +36,9 @@ dependencies {
 
 ### Rest
 
-Overriding the **RestCore** class you are able to *define all api* provided from the server (can exists more than one RestCore classes, one for each endpoint).
+Overriding the **[CoreRest](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore.rest/-core-rest/)** class you are able to *define all api* provided from the server (can exists more than one RestCore classes, one for each endpoint).
 
-Implementation example of an **ApiCore**
+Implementation example of a **CoreRest**
 
 ```kotlin
 /*
@@ -60,10 +60,10 @@ class MockyRest: CoreRest("http://www.mocky.io/v2/") {
 
 ### Controller
 
-Override the **CoreController** to create a model's controller.
+Override the **[CoreController](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/-core-controller)** to create a model's controller.
 This class join the http calls lifecycle to the view's lifecycle, returning to the view the Api result already converted to the model's classes.
 
-Implementation example of an **DevController**
+Implementation example of a **CoreController**
 
 ```kotlin
 /*
@@ -93,7 +93,7 @@ We suggest to simply create standard classes with a constructor JSONObject param
 There is a way to launch more CoreController's methods that returns models in a callback.
 The class that provide this feature is MultipleCoreRequests.
 
-Usage example of a **MultipleCoreRequests**
+Usage example of a **[MultipleCoreRequests](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/-multiple-core-requests/)**
 
 ```
 //Create the requests to parallelize specifying
