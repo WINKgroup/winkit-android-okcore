@@ -27,7 +27,9 @@ class MainActivity : CoreActivity() {
         val getAll = MultipleCoreRequests.CoreControllerRequest<List<Developer>>(devController::getAll)
         val create = MultipleCoreRequests.CoreControllerRequest<Developer>(devController::create, "Luigi", "Vitelli")
 
-        MultipleCoreRequests(getAll, create).start { allSuccess ->
+        val all = MultipleCoreRequests(getAll, create)
+        all.finishOnFirstError = true
+        all.start { allSuccess ->
             Log.d("MultipleCoreRequests", "result $allSuccess")
         }
     }

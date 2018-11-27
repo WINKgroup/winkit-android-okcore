@@ -87,3 +87,34 @@ class DevController (view: CoreUi): CoreController<MockyRest>(view, MockyRest())
 This library not define and not preclude any way to implement models classes but in Wink we prefer to not use any converting library (Gson, ecc... ).
 This choice is due by a bad experience with epi responses provided by external entities.
 We suggest to simply create standard classes with a constructor JSONObject param (like in this app example).
+
+
+###Multiple Core requests
+There is a way to launch more CoreController's methods that returns models in a callback.
+The class that provide this feature is MultipleCoreRequests.
+
+Usage example of a **MultipleCoreRequests**
+
+```
+//Create the requests to parallelize specifying
+// - the controller's method
+// - extra paramethers
+// - the succes type
+val getAll = MultipleCoreRequests.CoreControllerRequest<List<Developer>>(devController::getAll)
+val create = MultipleCoreRequests.CoreControllerRequest<Developer>(devController::create, "Luigi", "Vitelli")
+	
+//Instantiate the MultipleCoreRequests object for requests
+val all = MultipleCoreRequests(getAll, create)
+	
+//If true execute the finish callback on first error occurence (default is false)
+all.finishOnFirstError = true
+    
+//execute the requests
+all.start { allSuccess ->
+	Log.d("MultipleCoreRequests", "result $allSuccess")
+	val getAllResult = getAll.result
+	val getAllError = getAll.errorMessage
+	val createResult = create.result
+	val createError = create.errorMessage
+}
+```
