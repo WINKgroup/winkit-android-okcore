@@ -95,11 +95,13 @@ The class that provide this feature is MultipleCoreRequests.
 
 Usage example of a **[MultipleCoreRequests](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/-multiple-core-requests/)**
 
-```
-//Create the requests to parallelize specifying
-// - the controller's method
-// - extra paramethers
-// - the succes type
+```kotlin	
+/*
+Create the requests to parallelize specifying
+ - the controller's method
+ - extra paramethers
+ - the succes type
+*/
 val getAll = MultipleCoreRequests.CoreControllerRequest<List<Developer>>(devController::getAll)
 val create = MultipleCoreRequests.CoreControllerRequest<Developer>(devController::create, "Luigi", "Vitelli")
 	
