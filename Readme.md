@@ -89,7 +89,7 @@ This choice is due by a bad experience with epi responses provided by external e
 We suggest to simply create standard classes with a constructor JSONObject param (like in this app example).
 
 
-###Multiple Core requests
+### Multiple Core requests
 There is a way to launch more CoreController's methods that returns models in a callback.
 The class that provide this feature is MultipleCoreRequests.
 
