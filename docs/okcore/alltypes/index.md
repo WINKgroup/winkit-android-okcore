@@ -6,7 +6,7 @@
 |---|---|
 | [winkit.android.okcore.uielements.CoreActivity](../winkit.android.okcore.uielements/-core-activity/index.md) | The [AppCompatActivity](#) that implements [CoreUi](../winkit.android.okcore.uielements/-core-ui/index.md) interface. Cancel all ui requests on [onDestroy](../winkit.android.okcore.uielements/-core-activity/on-destroy.md) event |
 | [winkit.android.okcore.rest.CoreClient](../winkit.android.okcore.rest/-core-client/index.md) | Wrapper class that contains all request connected to a [CoreUi](#) (generic ui element) |
-| [winkit.android.okcore.CoreController](../winkit.android.okcore/-core-controller/index.md) |  |
+| [winkit.android.okcore.CoreController](../winkit.android.okcore/-core-controller/index.md) | Extends this class to create the Model-controllers. |
 | [winkit.android.okcore.uielements.CoreFragment](../winkit.android.okcore.uielements/-core-fragment/index.md) | The [Fragment](#) that implements [CoreUi](../winkit.android.okcore.uielements/-core-ui/index.md) interface. Cancel all ui requests on [onDestroy](../winkit.android.okcore.uielements/-core-fragment/on-destroy.md) event |
 | [winkit.android.okcore.uielements.CoreIntentService](../winkit.android.okcore.uielements/-core-intent-service/index.md) | The [CoreIntentService](../winkit.android.okcore.uielements/-core-intent-service/index.md) that implements [CoreUi](../winkit.android.okcore.uielements/-core-ui/index.md) interface. Cancel all ui requests on [onDestroy](../winkit.android.okcore.uielements/-core-intent-service/on-destroy.md) event |
 | [winkit.android.okcore.rest.CoreRest](../winkit.android.okcore.rest/-core-rest/index.md) | Class to extends to create an API class mapping for a baseUrl |
