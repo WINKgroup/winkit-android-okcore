@@ -36,7 +36,7 @@ dependencies {
 
 ### Rest
 
-Overriding the **[CoreRest](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore.rest/-core-rest/)** class you are able to *define all api* provided from the server (can exists more than one RestCore classes, one for each endpoint).
+Overriding the **[CoreRest](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore.rest/-core-rest/)** class you are able to *define all api* provided from the server (can exist more than one RestCore class, one for each endpoint).
 
 Implementation example of a **CoreRest**
 
@@ -61,7 +61,7 @@ class MockyRest: CoreRest("http://www.mocky.io/v2/") {
 ### Controller
 
 Override the **[CoreController](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/-core-controller)** to create a model's controller.
-This class join the http calls lifecycle to the view's lifecycle, returning to the view the Api result already converted to the model's classes.
+This class join the http calls lifecycle to the view's lifecycle, returning to view the Api result already converted into model.
 
 Implementation example of a **CoreController**
 
@@ -91,9 +91,9 @@ We suggest to simply create standard classes with a constructor JSONObject param
 
 ### Multiple Core requests
 There is a way to launch more CoreController's methods that returns models in a callback.
-The class that provide this feature is MultipleCoreRequests.
+The class that provide this feature is **[MultipleCoreRequests](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/-multiple-core-requests/)**.
 
-Usage example of a **[MultipleCoreRequests](https://winkgroup.github.io/winkit-android-okcore/okcore/winkit.android.okcore/-multiple-core-requests/)**
+Usage example
 
 ```kotlin	
 /*
