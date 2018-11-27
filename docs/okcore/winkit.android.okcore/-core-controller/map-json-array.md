@@ -6,13 +6,7 @@
 
 Util's method to map a [JSONArray](https://developer.android.com/reference/org/json/JSONArray.html) to a model class list in a simple way
 
-``` kotlin
-val result = ArrayList<T>()
-for (i in 0..(jsonArray.length() - 1)) {
-    result.add(callback(jsonArray.getJSONObject(i)))
-}
-return result
-```
+example: `val parsedList: List<Model> = mapJsonArray(jsonArray, { json -> Model(json) }`
 
 ### Parameters
 

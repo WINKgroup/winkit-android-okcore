@@ -76,7 +76,7 @@ open class CoreController <T: CoreRest> {
     /**
      * Util's method to map a [JSONArray] to a model class list in a simple way
      *
-     * @sample mapJsonArray   val parsedList: List<Model> = mapJsonArray(jsonArray, { json -> Model(json) }
+     * example: `val parsedList: List<Model> = mapJsonArray(jsonArray, { json -> Model(json) }`
      *
      * @param jsonArray to map
      * @param callback tha mapper function
