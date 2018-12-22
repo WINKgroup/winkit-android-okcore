@@ -1,5 +1,6 @@
 package winkit.android.okcore.uielements
 
+import android.content.Context
 import winkit.android.okcore.rest.CoreClient
 
 /**
@@ -7,6 +8,7 @@ import winkit.android.okcore.rest.CoreClient
  */
 public interface CoreUi {
 
+    val uiContext: Context
     fun getCoreClient () : CoreClient
     fun runOnUi (runnable: Runnable)
 }

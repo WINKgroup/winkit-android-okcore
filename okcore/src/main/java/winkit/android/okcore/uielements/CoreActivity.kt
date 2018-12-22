@@ -1,5 +1,6 @@
 package winkit.android.okcore.uielements
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import winkit.android.okcore.rest.CoreClient
 
@@ -8,6 +9,9 @@ import winkit.android.okcore.rest.CoreClient
  * Cancel all ui requests on [onDestroy] event
  */
 open class CoreActivity: AppCompatActivity(), CoreUi {
+
+    override val uiContext: Context
+        get() = this
 
     private var client: CoreClient = CoreClient()
 
